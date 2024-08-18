@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h2>Click here to predict <a href="{{url_for('predict')}}">Predict</a></h2>
+<form action="/predict", method="post">
+    <input type="file" name="file"/>
+    <input type="submit" value="upload"/>
+</form>
+{% endblock content %}

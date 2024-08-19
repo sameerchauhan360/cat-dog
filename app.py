@@ -48,7 +48,7 @@ def predict():
     img_filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     img.save(img_filename)
     
-    return render_template('predict.html', prediction=result, 
+    return render_template('index.html', prediction=result, 
                            image_url=url_for('static', filename='uploads/' + file.filename))
 
 if __name__=='__main__':

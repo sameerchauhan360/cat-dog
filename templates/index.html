@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Image Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
 </head>
+
 <body>
     <h1>Upload an Image</h1>
-    <form action="/predict" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" />
-        <input type="submit" value="Upload" />
-    </form>
-
-    {% if prediction %}
+    <div id=form>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <label class="custom-file-uploaded">
+                <span>Choose file</span>
+                <input class="file" type="file" name="file" />
+            </label>
+            <input class="custom-file-uploaded" type="submit" value="Upload" />
+        </form>
+    </div>
+    <div id="pred">
+        {% if prediction %}
         <h2>Prediction: {{ prediction }}</h2>
-        <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 400px;">
-    {% endif %}
+        <img src="{{ image_url }}" alt="Uploaded Image">
+        {% endif %}
+    </div>
 </body>
+
 </html>
